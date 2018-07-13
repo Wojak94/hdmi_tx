@@ -1,0 +1,22 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/timing.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/timing_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/timing_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/timing.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/timing.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/timing_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/encoder.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity encoder
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/encoder_sim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_encoder
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/timing_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/timing.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity timing
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_1/new/timing_test.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity tb_timing

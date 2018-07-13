@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="encoder_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="encoder_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="40000001fs"></ZoomEndTime>
+      <Cursor1Time time="20202000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="7" />
+   <wvobject type="logic" fp_name="/encoder_tb/uut/clk_in">
+      <obj_property name="ElementShortName">clk_in</obj_property>
+      <obj_property name="ObjectShortName">clk_in</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/encoder_tb/uut/color">
+      <obj_property name="ElementShortName">color[7:0]</obj_property>
+      <obj_property name="ObjectShortName">color[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/encoder_tb/uut/q_m">
+      <obj_property name="ElementShortName">q_m[8:0]</obj_property>
+      <obj_property name="ObjectShortName">q_m[8:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/encoder_tb/uut/color_out">
+      <obj_property name="ElementShortName">color_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">color_out[9:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/encoder_tb/uut/de">
+      <obj_property name="ElementShortName">de</obj_property>
+      <obj_property name="ObjectShortName">de</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/encoder_tb/uut/de_q">
+      <obj_property name="ElementShortName">de_q</obj_property>
+      <obj_property name="ObjectShortName">de_q</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/encoder_tb/uut/de_reg">
+      <obj_property name="ElementShortName">de_reg</obj_property>
+      <obj_property name="ObjectShortName">de_reg</obj_property>
+   </wvobject>
+</wave_config>

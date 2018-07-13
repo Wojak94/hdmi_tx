@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../HDMI_Transmitter.srcs/sources_1/new/encoder.vhd" \
+"../../../../HDMI_Transmitter.srcs/sim_1/new/encoder_sim.vhd" \
+
+# Do not sort compile order
+nosort
