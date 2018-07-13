@@ -188,7 +188,3 @@ create_clock -add -name sys_clk_pin -period 8.00 -waveform {0 4} [get_ports { sy
 
 #set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { crypto_sda }]; #IO_25_35 Sch=crypto_sda
 
-set_property PACKAGE_PIN D19 [get_ports a]
-set_property PACKAGE_PIN R14 [get_ports b]
-set_property IOSTANDARD LVCMOS33 [get_ports b]
-set_property IOSTANDARD LVCMOS33 [get_ports a]

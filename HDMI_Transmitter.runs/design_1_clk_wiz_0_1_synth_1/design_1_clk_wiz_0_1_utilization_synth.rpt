@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
-| Date         : Thu Jul 12 13:20:04 2018
+| Date         : Fri Jul 13 15:26:33 2018
 | Host         : wojak-pc running 64-bit Manjaro Linux
 | Command      : report_utilization -file design_1_clk_wiz_0_1_utilization_synth.rpt -pb design_1_clk_wiz_0_1_utilization_synth.pb
 | Design       : design_1_clk_wiz_0_1
