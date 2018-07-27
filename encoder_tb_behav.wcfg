@@ -3,52 +3,87 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="encoder_tb_behav.wdb" id="1">
+      <db_ref path="design_1_wrapper_tb_func_synth.wdb" id="1">
          <top_modules>
-            <top_module name="encoder_tb" />
+            <top_module name="design_1_wrapper_tb" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="40000001fs"></ZoomEndTime>
-      <Cursor1Time time="20202000fs"></Cursor1Time>
+      <ZoomEndTime time="717183770884fs"></ZoomEndTime>
+      <Cursor1Time time="500000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="118"></ValueColumnWidth>
+      <NameColumnWidth column_width="174"></NameColumnWidth>
+      <ValueColumnWidth column_width="110"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="7" />
-   <wvobject type="logic" fp_name="/encoder_tb/uut/clk_in">
-      <obj_property name="ElementShortName">clk_in</obj_property>
-      <obj_property name="ObjectShortName">clk_in</obj_property>
+   <WVObjectSize size="15" />
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/clk_wiz_0/pix_clk">
+      <obj_property name="ElementShortName">pix_clk</obj_property>
+      <obj_property name="ObjectShortName">pix_clk</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/encoder_tb/uut/color">
-      <obj_property name="ElementShortName">color[7:0]</obj_property>
-      <obj_property name="ObjectShortName">color[7:0]</obj_property>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/clk_wiz_0/pix_clk5">
+      <obj_property name="ElementShortName">pix_clk5</obj_property>
+      <obj_property name="ObjectShortName">pix_clk5</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/clk_wiz_0/locked">
+      <obj_property name="ElementShortName">locked</obj_property>
+      <obj_property name="ObjectShortName">locked</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/timing_0/h_pos">
+      <obj_property name="ElementShortName">h_pos[11:0]</obj_property>
+      <obj_property name="ObjectShortName">h_pos[11:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/timing_0/v_pos">
+      <obj_property name="ElementShortName">v_pos[10:0]</obj_property>
+      <obj_property name="ObjectShortName">v_pos[10:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/selectio_wiz_0/data_out_from_device">
+      <obj_property name="ElementShortName">data_out_from_device[29:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out_from_device[29:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/encoder_tb/uut/q_m">
-      <obj_property name="ElementShortName">q_m[8:0]</obj_property>
-      <obj_property name="ObjectShortName">q_m[8:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/encoder_tb/uut/color_out">
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/encoder_0/color_out">
       <obj_property name="ElementShortName">color_out[9:0]</obj_property>
       <obj_property name="ObjectShortName">color_out[9:0]</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/encoder_tb/uut/de">
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/encoder_1/color_out">
+      <obj_property name="ElementShortName">color_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">color_out[9:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/design_1_i/encoder_2/color_out">
+      <obj_property name="ElementShortName">color_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">color_out[9:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/hdmi_tx_d_n">
+      <obj_property name="ElementShortName">hdmi_tx_d_n[2:0]</obj_property>
+      <obj_property name="ObjectShortName">hdmi_tx_d_n[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/design_1_wrapper_tb/uut/hdmi_tx_d_p">
+      <obj_property name="ElementShortName">hdmi_tx_d_p[2:0]</obj_property>
+      <obj_property name="ObjectShortName">hdmi_tx_d_p[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/timing_0/de">
       <obj_property name="ElementShortName">de</obj_property>
       <obj_property name="ObjectShortName">de</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/encoder_tb/uut/de_q">
-      <obj_property name="ElementShortName">de_q</obj_property>
-      <obj_property name="ObjectShortName">de_q</obj_property>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/timing_0/h_sync">
+      <obj_property name="ElementShortName">h_sync</obj_property>
+      <obj_property name="ObjectShortName">h_sync</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/encoder_tb/uut/de_reg">
-      <obj_property name="ElementShortName">de_reg</obj_property>
-      <obj_property name="ObjectShortName">de_reg</obj_property>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/uut/design_1_i/timing_0/v_sync">
+      <obj_property name="ElementShortName">v_sync</obj_property>
+      <obj_property name="ObjectShortName">v_sync</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/design_1_wrapper_tb/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
    </wvobject>
 </wave_config>

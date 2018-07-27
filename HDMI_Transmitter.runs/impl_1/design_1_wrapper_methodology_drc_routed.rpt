@@ -1,0 +1,51 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
+| Date         : Sat Jul 14 13:06:13 2018
+| Host         : wojak-pc running 64-bit Manjaro Linux
+| Command      : report_methodology -file design_1_wrapper_methodology_drc_routed.rpt -pb design_1_wrapper_methodology_drc_routed.pb -rpx design_1_wrapper_methodology_drc_routed.rpx
+| Design       : design_1_wrapper
+| Device       : xc7z020clg400-1
+| Speed File   : -1
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 3
++----------+----------+------------------------------------------------+------------+
+| Rule     | Severity | Description                                    | Violations |
++----------+----------+------------------------------------------------+------------+
+| LUTAR-1  | Warning  | LUT drives async reset alert                   | 1          |
+| TIMING-6 | Warning  | No common primary clock between related clocks | 2          |
++----------+----------+------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell design_1_i/util_vector_logic_0/Res[0]_INST_0, with 2 or more inputs, drives asynchronous reset pin(s) design_1_i/clk_wiz_0/inst/mmcm_adv_inst/RST. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-6#1 Warning
+No common primary clock between related clocks  
+The clocks pix_clk_design_1_clk_wiz_0_1 and pix_clk_design_1_clk_wiz_0_1_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks pix_clk_design_1_clk_wiz_0_1] -to [get_clocks pix_clk_design_1_clk_wiz_0_1_1]
+Related violations: <none>
+
+TIMING-6#2 Warning
+No common primary clock between related clocks  
+The clocks pix_clk_design_1_clk_wiz_0_1_1 and pix_clk_design_1_clk_wiz_0_1 are related (timed together) but they have no common primary clock. The design could fail in hardware. To find a timing path between these clocks, run the following command: report_timing -from [get_clocks pix_clk_design_1_clk_wiz_0_1_1] -to [get_clocks pix_clk_design_1_clk_wiz_0_1]
+Related violations: <none>
+
+

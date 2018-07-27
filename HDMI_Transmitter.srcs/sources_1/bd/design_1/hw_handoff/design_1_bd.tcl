@@ -165,6 +165,10 @@ proc create_root_design { parentCell } {
   # Create interface ports
 
   # Create ports
+  set hdmi_tx_clk_n [ create_bd_port -dir O -type clk hdmi_tx_clk_n ]
+  set hdmi_tx_clk_p [ create_bd_port -dir O -type clk hdmi_tx_clk_p ]
+  set hdmi_tx_d_n [ create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_d_n ]
+  set hdmi_tx_d_p [ create_bd_port -dir O -from 2 -to 0 -type data hdmi_tx_d_p ]
   set rst [ create_bd_port -dir I -type rst rst ]
   set_property -dict [ list \
    CONFIG.POLARITY {ACTIVE_HIGH} \
@@ -179,53 +183,26 @@ proc create_root_design { parentCell } {
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.CLKIN1_JITTER_PS {80.0} \
-   CONFIG.CLKOUT1_JITTER {244.188} \
-   CONFIG.CLKOUT1_PHASE_ERROR {245.344} \
+   CONFIG.CLKOUT1_JITTER {239.766} \
+   CONFIG.CLKOUT1_PHASE_ERROR {368.066} \
    CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {74.25} \
-   CONFIG.CLKOUT2_DRIVES {No_buffer} \
-   CONFIG.CLKOUT2_JITTER {117.142} \
-   CONFIG.CLKOUT2_PHASE_ERROR {127.299} \
-   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {742.5} \
-   CONFIG.CLKOUT2_USED {false} \
+   CONFIG.CLKOUT2_DRIVES {BUFG} \
+   CONFIG.CLKOUT2_JITTER {192.979} \
+   CONFIG.CLKOUT2_PHASE_ERROR {368.066} \
+   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {371.25} \
+   CONFIG.CLKOUT2_USED {true} \
    CONFIG.CLK_IN1_BOARD_INTERFACE {sys_clock} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {37.125} \
+   CONFIG.CLK_OUT1_PORT {pix_clk} \
+   CONFIG.CLK_OUT2_PORT {pix_clk5} \
+   CONFIG.MMCM_CLKFBOUT_MULT_F {62.375} \
    CONFIG.MMCM_CLKIN1_PERIOD {8.000} \
    CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {12.500} \
-   CONFIG.MMCM_CLKOUT1_DIVIDE {1} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {5} \
-   CONFIG.NUM_OUT_CLKS {1} \
+   CONFIG.MMCM_CLKOUT0_DIVIDE_F {15.000} \
+   CONFIG.MMCM_CLKOUT1_DIVIDE {3} \
+   CONFIG.MMCM_DIVCLK_DIVIDE {7} \
+   CONFIG.NUM_OUT_CLKS {2} \
    CONFIG.USE_BOARD_FLOW {true} \
  ] $clk_wiz_0
-
-  # Create instance: clk_wiz_1, and set properties
-  set clk_wiz_1 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_1 ]
-  set_property -dict [ list \
-   CONFIG.CLKIN1_JITTER_PS {134.68} \
-   CONFIG.CLKOUT1_DRIVES {No_buffer} \
-   CONFIG.CLKOUT1_JITTER {114.041} \
-   CONFIG.CLKOUT1_PHASE_ERROR {124.923} \
-   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {742.5} \
-   CONFIG.CLKOUT2_DRIVES {No_buffer} \
-   CONFIG.CLKOUT2_JITTER {177.181} \
-   CONFIG.CLKOUT2_PHASE_ERROR {124.923} \
-   CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {74.25} \
-   CONFIG.CLKOUT2_USED {true} \
-   CONFIG.CLK_IN1_BOARD_INTERFACE {Custom} \
-   CONFIG.CLK_OUT1_PORT {clk_pix10} \
-   CONFIG.CLK_OUT2_PORT {clk_pix} \
-   CONFIG.FEEDBACK_SOURCE {FDBK_ONCHIP} \
-   CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} \
-   CONFIG.MMCM_CLKIN1_PERIOD {13.468} \
-   CONFIG.MMCM_CLKIN2_PERIOD {10.000} \
-   CONFIG.MMCM_CLKOUT0_DIVIDE_F {1.000} \
-   CONFIG.MMCM_CLKOUT1_DIVIDE {10} \
-   CONFIG.MMCM_DIVCLK_DIVIDE {1} \
-   CONFIG.NUM_OUT_CLKS {2} \
-   CONFIG.PRIM_IN_FREQ {74.25} \
-   CONFIG.PRIM_SOURCE {Global_buffer} \
-   CONFIG.USE_BOARD_FLOW {true} \
- ] $clk_wiz_1
 
   # Create instance: encoder_0, and set properties
   set block_name encoder
@@ -327,12 +304,9 @@ proc create_root_design { parentCell } {
  ] $xlconstant_0
 
   # Create port connections
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins clk_wiz_1/clk_in1]
-  connect_bd_net -net clk_wiz_0_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins clk_wiz_1/reset]
-  connect_bd_net -net clk_wiz_1_clk_pix [get_bd_pins clk_wiz_1/clk_pix] [get_bd_pins encoder_0/clk_in] [get_bd_pins encoder_1/clk_in] [get_bd_pins encoder_2/clk_in] [get_bd_pins image_gen_0/clk_in] [get_bd_pins selectio_wiz_0/clk_div_in] [get_bd_pins timing_0/clk_in]
-  connect_bd_net -net clk_wiz_1_clk_pix10 [get_bd_pins clk_wiz_1/clk_pix10] [get_bd_pins selectio_wiz_0/clk_in]
-  connect_bd_net -net clk_wiz_1_clkfb_out [get_bd_pins clk_wiz_1/clkfb_in] [get_bd_pins clk_wiz_1/clkfb_out]
-  connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_1/locked] [get_bd_pins timing_0/clk_locked] [get_bd_pins util_vector_logic_0/Op2]
+  connect_bd_net -net clk_wiz_0_pix_clk5 [get_bd_pins clk_wiz_0/pix_clk5] [get_bd_pins selectio_wiz_0/clk_in]
+  connect_bd_net -net clk_wiz_1_clk_pix [get_bd_pins clk_wiz_0/pix_clk] [get_bd_pins encoder_0/clk_in] [get_bd_pins encoder_1/clk_in] [get_bd_pins encoder_2/clk_in] [get_bd_pins image_gen_0/clk_in] [get_bd_pins selectio_wiz_0/clk_div_in] [get_bd_pins timing_0/clk_in]
+  connect_bd_net -net clk_wiz_1_locked [get_bd_pins clk_wiz_0/locked] [get_bd_pins timing_0/clk_locked] [get_bd_pins util_vector_logic_0/Op2]
   connect_bd_net -net encoder_0_color_out [get_bd_pins encoder_0/color_out] [get_bd_pins xlconcat_0/In2]
   connect_bd_net -net encoder_1_color_out [get_bd_pins encoder_1/color_out] [get_bd_pins xlconcat_0/In1]
   connect_bd_net -net encoder_2_color_out [get_bd_pins encoder_2/color_out] [get_bd_pins xlconcat_0/In0]
@@ -343,13 +317,17 @@ proc create_root_design { parentCell } {
   connect_bd_net -net image_gen_0_red_out [get_bd_pins encoder_0/color] [get_bd_pins image_gen_0/red_out]
   connect_bd_net -net image_gen_0_v_sync_align [get_bd_pins encoder_2/c1] [get_bd_pins image_gen_0/v_sync_align]
   connect_bd_net -net rst_1 [get_bd_ports rst] [get_bd_pins util_vector_logic_0/Op1]
+  connect_bd_net -net selectio_wiz_0_clk_to_pins_n [get_bd_ports hdmi_tx_clk_n] [get_bd_pins selectio_wiz_0/clk_to_pins_n]
+  connect_bd_net -net selectio_wiz_0_clk_to_pins_p [get_bd_ports hdmi_tx_clk_p] [get_bd_pins selectio_wiz_0/clk_to_pins_p]
+  connect_bd_net -net selectio_wiz_0_data_out_to_pins_n [get_bd_ports hdmi_tx_d_n] [get_bd_pins selectio_wiz_0/data_out_to_pins_n]
+  connect_bd_net -net selectio_wiz_0_data_out_to_pins_p [get_bd_ports hdmi_tx_d_p] [get_bd_pins selectio_wiz_0/data_out_to_pins_p]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net timing_0_de [get_bd_pins image_gen_0/de] [get_bd_pins timing_0/de]
   connect_bd_net -net timing_0_h_pos [get_bd_pins image_gen_0/h_position] [get_bd_pins timing_0/h_pos]
   connect_bd_net -net timing_0_h_sync [get_bd_pins image_gen_0/h_sync] [get_bd_pins timing_0/h_sync]
   connect_bd_net -net timing_0_v_pos [get_bd_pins image_gen_0/v_position] [get_bd_pins timing_0/v_pos]
   connect_bd_net -net timing_0_v_sync [get_bd_pins image_gen_0/v_sync] [get_bd_pins timing_0/v_sync]
-  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins clk_wiz_0/reset] [get_bd_pins timing_0/reset] [get_bd_pins util_vector_logic_0/Res]
+  connect_bd_net -net util_vector_logic_0_Res [get_bd_pins clk_wiz_0/reset] [get_bd_pins selectio_wiz_0/clk_reset] [get_bd_pins selectio_wiz_0/io_reset] [get_bd_pins timing_0/reset] [get_bd_pins util_vector_logic_0/Res]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins selectio_wiz_0/data_out_from_device] [get_bd_pins xlconcat_0/dout]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins encoder_0/c0] [get_bd_pins encoder_0/c1] [get_bd_pins encoder_1/c0] [get_bd_pins encoder_1/c1] [get_bd_pins xlconstant_0/dout]
 

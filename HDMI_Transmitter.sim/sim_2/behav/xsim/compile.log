@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sources_1/new/encoder.vhd" into library xil_defaultlib
-INFO: [VRFC 10-307] analyzing entity encoder
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_2/new/complete.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity design_1_wrapper_tb

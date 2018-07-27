@@ -1,0 +1,21 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.sim/sim_2/impl/func/xsim/design_1_wrapper_tb_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity design_1_clk_wiz_0_1_design_1_clk_wiz_0_1_clk_wiz
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_0_0_encoder
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_1_0_encoder
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_2_0_encoder
+INFO: [VRFC 10-307] analyzing entity design_1_image_gen_0_0_image_gen
+INFO: [VRFC 10-307] analyzing entity design_1_selectio_wiz_0_0_design_1_selectio_wiz_0_0_selectio_wiz
+INFO: [VRFC 10-307] analyzing entity design_1_timing_0_0_timing
+INFO: [VRFC 10-307] analyzing entity design_1_util_vector_logic_0_0
+INFO: [VRFC 10-307] analyzing entity design_1_xlconcat_0_0
+INFO: [VRFC 10-307] analyzing entity design_1_clk_wiz_0_1
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_0_0
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_1_0
+INFO: [VRFC 10-307] analyzing entity design_1_encoder_2_0
+INFO: [VRFC 10-307] analyzing entity design_1_image_gen_0_0
+INFO: [VRFC 10-307] analyzing entity design_1_selectio_wiz_0_0
+INFO: [VRFC 10-307] analyzing entity design_1_timing_0_0
+INFO: [VRFC 10-307] analyzing entity design_1
+INFO: [VRFC 10-307] analyzing entity design_1_wrapper
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/wojak/Vivado_Projects/HDMI_Transmitter/HDMI_Transmitter.srcs/sim_2/new/complete.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity design_1_wrapper_tb

@@ -1,7 +1,7 @@
 --Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
 --Tool Version: Vivado v.2018.1 (lin64) Build 2188600 Wed Apr  4 18:39:19 MDT 2018
---Date        : Fri Jul 13 15:21:53 2018
+--Date        : Sat Jul 14 13:03:35 2018
 --Host        : wojak-pc running 64-bit Manjaro Linux
 --Command     : generate_target design_1.bd
 --Design      : design_1
@@ -13,11 +13,15 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity design_1 is
   port (
+    hdmi_tx_clk_n : out STD_LOGIC;
+    hdmi_tx_clk_p : out STD_LOGIC;
+    hdmi_tx_d_n : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    hdmi_tx_d_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
     rst : in STD_LOGIC;
     sys_clock : in STD_LOGIC
   );
   attribute CORE_GENERATION_INFO : string;
-  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=11,numReposBlks=11,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,da_board_cnt=6,da_clkrst_cnt=1,synth_mode=OOC_per_IP}";
+  attribute CORE_GENERATION_INFO of design_1 : entity is "design_1,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=design_1,x_ipVersion=1.00.a,x_ipLanguage=VHDL,numBlks=10,numReposBlks=10,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,da_board_cnt=6,da_clkrst_cnt=1,synth_mode=OOC_per_IP}";
   attribute HW_HANDOFF : string;
   attribute HW_HANDOFF of design_1 : entity is "design_1.hwdef";
 end design_1;
@@ -27,7 +31,8 @@ architecture STRUCTURE of design_1 is
   port (
     reset : in STD_LOGIC;
     clk_in1 : in STD_LOGIC;
-    clk_out1 : out STD_LOGIC;
+    pix_clk : out STD_LOGIC;
+    pix_clk5 : out STD_LOGIC;
     locked : out STD_LOGIC
   );
   end component design_1_clk_wiz_0_1;
@@ -101,17 +106,6 @@ architecture STRUCTURE of design_1 is
     blue_out : out STD_LOGIC_VECTOR ( 7 downto 0 )
   );
   end component design_1_image_gen_0_0;
-  component design_1_clk_wiz_0_0 is
-  port (
-    reset : in STD_LOGIC;
-    clk_in1 : in STD_LOGIC;
-    locked : out STD_LOGIC;
-    clkfb_in : in STD_LOGIC;
-    clkfb_out : out STD_LOGIC;
-    clk_pix10 : out STD_LOGIC;
-    clk_pix : out STD_LOGIC
-  );
-  end component design_1_clk_wiz_0_0;
   component design_1_selectio_wiz_0_0 is
   port (
     data_out_to_pins_p : out STD_LOGIC_VECTOR ( 2 downto 0 );
@@ -133,11 +127,8 @@ architecture STRUCTURE of design_1 is
     dout : out STD_LOGIC_VECTOR ( 29 downto 0 )
   );
   end component design_1_xlconcat_0_0;
-  signal clk_wiz_0_clk_out1 : STD_LOGIC;
-  signal clk_wiz_0_locked : STD_LOGIC;
+  signal clk_wiz_0_pix_clk5 : STD_LOGIC;
   signal clk_wiz_1_clk_pix : STD_LOGIC;
-  signal clk_wiz_1_clk_pix10 : STD_LOGIC;
-  signal clk_wiz_1_clkfb_out : STD_LOGIC;
   signal clk_wiz_1_locked : STD_LOGIC;
   signal encoder_0_color_out : STD_LOGIC_VECTOR ( 9 downto 0 );
   signal encoder_1_color_out : STD_LOGIC_VECTOR ( 9 downto 0 );
@@ -149,6 +140,10 @@ architecture STRUCTURE of design_1 is
   signal image_gen_0_red_out : STD_LOGIC_VECTOR ( 7 downto 0 );
   signal image_gen_0_v_sync_align : STD_LOGIC;
   signal rst_1 : STD_LOGIC;
+  signal selectio_wiz_0_clk_to_pins_n : STD_LOGIC;
+  signal selectio_wiz_0_clk_to_pins_p : STD_LOGIC;
+  signal selectio_wiz_0_data_out_to_pins_n : STD_LOGIC_VECTOR ( 2 downto 0 );
+  signal selectio_wiz_0_data_out_to_pins_p : STD_LOGIC_VECTOR ( 2 downto 0 );
   signal sys_clock_1 : STD_LOGIC;
   signal timing_0_de : STD_LOGIC;
   signal timing_0_h_pos : STD_LOGIC_VECTOR ( 11 downto 0 );
@@ -158,35 +153,34 @@ architecture STRUCTURE of design_1 is
   signal util_vector_logic_0_Res : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 29 downto 0 );
   signal xlconstant_0_dout : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_selectio_wiz_0_clk_to_pins_n_UNCONNECTED : STD_LOGIC;
-  signal NLW_selectio_wiz_0_clk_to_pins_p_UNCONNECTED : STD_LOGIC;
-  signal NLW_selectio_wiz_0_data_out_to_pins_n_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_selectio_wiz_0_data_out_to_pins_p_UNCONNECTED : STD_LOGIC_VECTOR ( 2 downto 0 );
   attribute X_INTERFACE_INFO : string;
-  attribute X_INTERFACE_INFO of rst : signal is "xilinx.com:signal:reset:1.0 RST.RST RST";
+  attribute X_INTERFACE_INFO of hdmi_tx_clk_n : signal is "xilinx.com:signal:clock:1.0 CLK.HDMI_TX_CLK_N CLK";
   attribute X_INTERFACE_PARAMETER : string;
+  attribute X_INTERFACE_PARAMETER of hdmi_tx_clk_n : signal is "XIL_INTERFACENAME CLK.HDMI_TX_CLK_N, FREQ_HZ 100000000, PHASE 0.000";
+  attribute X_INTERFACE_INFO of hdmi_tx_clk_p : signal is "xilinx.com:signal:clock:1.0 CLK.HDMI_TX_CLK_P CLK";
+  attribute X_INTERFACE_PARAMETER of hdmi_tx_clk_p : signal is "XIL_INTERFACENAME CLK.HDMI_TX_CLK_P, FREQ_HZ 100000000, PHASE 0.000";
+  attribute X_INTERFACE_INFO of rst : signal is "xilinx.com:signal:reset:1.0 RST.RST RST";
   attribute X_INTERFACE_PARAMETER of rst : signal is "XIL_INTERFACENAME RST.RST, POLARITY ACTIVE_HIGH";
   attribute X_INTERFACE_INFO of sys_clock : signal is "xilinx.com:signal:clock:1.0 CLK.SYS_CLOCK CLK";
   attribute X_INTERFACE_PARAMETER of sys_clock : signal is "XIL_INTERFACENAME CLK.SYS_CLOCK, CLK_DOMAIN design_1_sys_clock, FREQ_HZ 125000000, PHASE 0.000";
+  attribute X_INTERFACE_INFO of hdmi_tx_d_n : signal is "xilinx.com:signal:data:1.0 DATA.HDMI_TX_D_N DATA";
+  attribute X_INTERFACE_PARAMETER of hdmi_tx_d_n : signal is "XIL_INTERFACENAME DATA.HDMI_TX_D_N, LAYERED_METADATA undef";
+  attribute X_INTERFACE_INFO of hdmi_tx_d_p : signal is "xilinx.com:signal:data:1.0 DATA.HDMI_TX_D_P DATA";
+  attribute X_INTERFACE_PARAMETER of hdmi_tx_d_p : signal is "XIL_INTERFACENAME DATA.HDMI_TX_D_P, LAYERED_METADATA undef";
 begin
+  hdmi_tx_clk_n <= selectio_wiz_0_clk_to_pins_n;
+  hdmi_tx_clk_p <= selectio_wiz_0_clk_to_pins_p;
+  hdmi_tx_d_n(2 downto 0) <= selectio_wiz_0_data_out_to_pins_n(2 downto 0);
+  hdmi_tx_d_p(2 downto 0) <= selectio_wiz_0_data_out_to_pins_p(2 downto 0);
   rst_1 <= rst;
   sys_clock_1 <= sys_clock;
 clk_wiz_0: component design_1_clk_wiz_0_1
      port map (
       clk_in1 => sys_clock_1,
-      clk_out1 => clk_wiz_0_clk_out1,
-      locked => clk_wiz_0_locked,
-      reset => util_vector_logic_0_Res(0)
-    );
-clk_wiz_1: component design_1_clk_wiz_0_0
-     port map (
-      clk_in1 => clk_wiz_0_clk_out1,
-      clk_pix => clk_wiz_1_clk_pix,
-      clk_pix10 => clk_wiz_1_clk_pix10,
-      clkfb_in => clk_wiz_1_clkfb_out,
-      clkfb_out => clk_wiz_1_clkfb_out,
       locked => clk_wiz_1_locked,
-      reset => clk_wiz_0_locked
+      pix_clk => clk_wiz_1_clk_pix,
+      pix_clk5 => clk_wiz_0_pix_clk5,
+      reset => util_vector_logic_0_Res(0)
     );
 encoder_0: component design_1_encoder_0_0
      port map (
@@ -233,14 +227,14 @@ image_gen_0: component design_1_image_gen_0_0
 selectio_wiz_0: component design_1_selectio_wiz_0_0
      port map (
       clk_div_in => clk_wiz_1_clk_pix,
-      clk_in => clk_wiz_1_clk_pix10,
-      clk_reset => '0',
-      clk_to_pins_n => NLW_selectio_wiz_0_clk_to_pins_n_UNCONNECTED,
-      clk_to_pins_p => NLW_selectio_wiz_0_clk_to_pins_p_UNCONNECTED,
+      clk_in => clk_wiz_0_pix_clk5,
+      clk_reset => util_vector_logic_0_Res(0),
+      clk_to_pins_n => selectio_wiz_0_clk_to_pins_n,
+      clk_to_pins_p => selectio_wiz_0_clk_to_pins_p,
       data_out_from_device(29 downto 0) => xlconcat_0_dout(29 downto 0),
-      data_out_to_pins_n(2 downto 0) => NLW_selectio_wiz_0_data_out_to_pins_n_UNCONNECTED(2 downto 0),
-      data_out_to_pins_p(2 downto 0) => NLW_selectio_wiz_0_data_out_to_pins_p_UNCONNECTED(2 downto 0),
-      io_reset => '0'
+      data_out_to_pins_n(2 downto 0) => selectio_wiz_0_data_out_to_pins_n(2 downto 0),
+      data_out_to_pins_p(2 downto 0) => selectio_wiz_0_data_out_to_pins_p(2 downto 0),
+      io_reset => util_vector_logic_0_Res(0)
     );
 timing_0: component design_1_timing_0_0
      port map (

@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"design_1_wrapper_tb_func_synth.vhd" \
+"../../../../../HDMI_Transmitter.srcs/sim_2/new/complete.vhd" \
+
+# Do not sort compile order
+nosort
